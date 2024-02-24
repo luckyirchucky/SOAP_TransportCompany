@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://server.suai.com/" xmlns:tns="http://server.suai.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="addTransport" type="tns:addTransport"/>
+
+  <xs:element name="addTransportResponse" type="tns:addTransportResponse"/>
+
+  <xs:element name="deleteTransport" type="tns:deleteTransport"/>
+
+  <xs:element name="deleteTransportResponse" type="tns:deleteTransportResponse"/>
+
+  <xs:element name="getAllTransports" type="tns:getAllTransports"/>
+
+  <xs:element name="getAllTransportsResponse" type="tns:getAllTransportsResponse"/>
+
+  <xs:element name="updateAvailability" type="tns:updateAvailability"/>
+
+  <xs:element name="updateAvailabilityResponse" type="tns:updateAvailabilityResponse"/>
+
+  <xs:complexType name="deleteTransport">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteTransportResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="addTransport">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:transport" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="transport">
+    <xs:sequence>
+      <xs:element name="availability" type="xs:string" minOccurs="0"/>
+      <xs:element name="carName" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="number" type="xs:string" minOccurs="0"/>
+      <xs:element name="price" type="xs:string" minOccurs="0"/>
+      <xs:element name="stateTransport" type="xs:string" minOccurs="0"/>
+      <xs:element name="year" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addTransportResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:transport" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateAvailability">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateAvailabilityResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllTransports">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllTransportsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:transport" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
